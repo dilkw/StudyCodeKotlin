@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_201">#FF8886FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="translate">#00000000</color>
+
+    <color name="translate_black">#20000000</color>
+
+    <color name="bg_object_animation_color">#33000000</color>
+
+    <color name="bg_car_view_yellow">#FFE3971F</color>
+
+    <color name="bg_car_view_greed">#FF5A7C4D</color>
+
+    <color name="bg_car_view_blue">#FF72939E</color>
+
+    <color name="bg_car_view_1">#FF8B5357</color>
+
+    <color name="bg_car_view_2">#FF123B57</color>
+
+    <color name="bg_car_view_3">#FF3B6F7C</color>
+
+    <color name="notification_bg">#e91e63</color>
+
+</resources>

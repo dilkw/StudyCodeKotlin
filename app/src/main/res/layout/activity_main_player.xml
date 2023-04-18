@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".media.MediaPlayerActivity">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_start_media_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:cornerRadius="20dp"
+        android:text="@string/btn_text_start_foreground_service"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/img_song_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="歌曲标题" />
+
+        <ImageView
+            android:id="@+id/img_song_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:contentDescription="@string/img_song_bg"
+            app:layout_constraintBottom_toTopOf="@+id/seek_bar_media"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <SeekBar
+            android:id="@+id/seek_bar_media"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/img_song_bg"
+            app:layout_constraintStart_toStartOf="@+id/img_song_bg"
+            app:layout_constraintBottom_toTopOf="@+id/btn_play_or_pause"
+            android:layout_marginBottom="50dp"/>
+
+        <ImageView
+            android:id="@+id/btn_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:contentDescription="@string/previous"
+            android:src="@drawable/ic_foreground_service_previous"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_play_or_pause"
+            app:layout_constraintEnd_toStartOf="@+id/btn_play_or_pause"
+            app:layout_constraintTop_toTopOf="@+id/btn_play_or_pause" />
+
+        <ImageView
+            android:id="@+id/btn_play_or_pause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/play_or_pause"
+            android:src="@drawable/ic_foreground_service_play"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:contentDescription="@string/next"
+            android:src="@drawable/ic_foreground_service_next"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_play_or_pause"
+            app:layout_constraintStart_toEndOf="@+id/btn_play_or_pause"
+            app:layout_constraintTop_toTopOf="@+id/btn_play_or_pause" />
+
+        <ImageView
+            android:id="@+id/btn_repeat_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/repeat_mode"
+            android:src="@drawable/ic_media_repeat_mode"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_play_or_pause"
+            app:layout_constraintEnd_toStartOf="@+id/btn_previous"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btn_play_or_pause" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

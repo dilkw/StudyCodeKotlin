@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/assets/stylesheet.css">
+        <title>webView html页面</title>
+    </head>
+    <script src="js/bridge.js"></script>
+    <body>
+        <div style="height:100px; background-color:#ddeeff; margin-top:10px">
+            <button type="button" style="background-color:#6FC; text-color:blank; height:30px; text-align:center" onclick="jsCallAndroidMethodReturnValue()">点击(调用Android原生函数，并且返回数据)</button>
+            <div style="border:1px solid blue; border-radius:5px; height:50px; margin-top:20px">
+                <p id="returnValue"></p>
+            </div>
+        </div>
+    </body>
+</html>

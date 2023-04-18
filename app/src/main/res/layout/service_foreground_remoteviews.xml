@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_root_foreground_service_notification_remoteView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/img_notification_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_notification_foreground_service"
+        android:contentDescription="@string/foreground_service_notification_icon_text" />
+
+    <TextView
+        android:id="@+id/tv_notification_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/img_notification_icon"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@+id/img_notification_icon"
+        android:text="@string/service_start_button_text"
+        tools:ignore="RelativeOverlap" />
+
+    <ImageButton
+        android:id="@+id/btn_notification_close"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/ic_notification_foreground_service_close"
+        android:contentDescription="@string/foreground_service_notification_close_text" />
+
+    <ImageButton
+        android:id="@+id/btn_previous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btn_pause_or_play"
+        android:layout_alignBottom="@+id/btn_pause_or_play"
+        android:layout_toStartOf="@+id/btn_pause_or_play"
+        android:layout_marginEnd="50dp"
+        android:background="@color/translate"
+        android:src="@drawable/ic_foreground_service_previous"
+        android:contentDescription="TODO" />
+
+    <ImageButton
+        android:id="@+id/btn_pause_or_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_notification_icon"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/translate"
+        android:src="@drawable/ic_foreground_service_pause"
+        android:contentDescription="TODO" />
+
+    <ImageButton
+        android:id="@+id/btn_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_notification_icon"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/translate"
+        android:src="@drawable/ic_foreground_service_play"
+        android:visibility="gone"
+        android:contentDescription="TODO" />
+
+    <ImageButton
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/btn_pause_or_play"
+        android:layout_alignTop="@+id/btn_pause_or_play"
+        android:layout_alignBottom="@+id/btn_pause_or_play"
+        android:layout_marginStart="50dp"
+        android:background="@color/translate"
+        android:src="@drawable/ic_foreground_service_next"
+        android:contentDescription="TODO" />
+
+</RelativeLayout>

@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">StudyCodeKotlin</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="view_animation_alpha">alpha</string>
+    <string name="view_animation_scale">scale</string>
+    <string name="view_animation_translate">translate</string>
+    <string name="view_animation_rotate">rotate</string>
+    <string name="view_animation_set">set</string>
+
+    <!--动画启动按钮文案-->
+    <string name="btn_text_animation_start">Animation Start</string>
+
+    <!--webView加载url按钮-->
+    <string name="btn_text_webView_load_start">Load Start</string>
+
+    <!--url输入框输入提示语-->
+    <string name="ed_input_hint">URL</string>
+
+    <!--调用js返回数据按钮文案-->
+    <string name="btn_text_call_js_method">调用js函数</string>
+
+    <!--调用js返回数据label文案-->
+    <string name="tv_call_js_method_return_value_label">js函数返回数据:</string>
+
+    <!--系统栏（状态栏、导航栏）-->
+    <string name="tv_status_bar_title">状态栏</string>
+    <string name="tv_navigation_bar_title">导航栏</string>
+    <!--状态栏-->
+    <string name="status_bar_visible_tv_label_text">状态栏(show/hide)：</string>
+    <string name="status_bar_color_tv_label_text">状态栏是否高亮：</string>
+    <string name="status_bar_background_tv_label_text">状态栏背景颜色(color)：</string>
+    <!--导航栏-->
+    <string name="navigation_bar_visible_tv_label_text">导航栏(show/hide)：</string>
+    <string name="navigation_bar_color_tv_label_text">导航栏按键是否高亮：</string>
+    <string name="navigation_bar_background_tv_label_text">导航栏(背景颜色)：</string>
+
+    <string name="translate_status_bar">沉浸式导航栏：</string>
+
+    <!--service-->
+    <string name="service_start_button_text">启动服务</string>
+    <string name="foreground_service_start_button_text">启动前台服务</string>
+    <string name="foreground_service_notification_title">前台服务标题</string>
+    <string name="foreground_service_notification_close_text">关闭</string>
+    <string name="foreground_service_notification_icon_text">通知图标</string>
+
+    <string name="play">播放</string>
+    <string name="pause">暂停</string>
+    <string name="play_or_pause">播放/暂停</string>
+    <string name="previous">上一首</string>
+    <string name="next">下一首</string>
+    <string name="img_song_bg">音乐背景图</string>
+    <string name="repeat_mode">循环模式</string>
+
+    <!-- media音频前台服务 -->
+    <string name="btn_text_start_foreground_service">启动前台服务</string>
+
+    <!--systemUiVisible-->
+    <string-array name="system_ui_array">
+
+        <item>SYSTEM_UI_FLAG_VISIBLE</item>
+        <item>SYSTEM_UI_FLAG_LOW_PROFILE</item>
+        <item>SYSTEM_UI_FLAG_HIDE_NAVIGATION</item>
+        <item>SYSTEM_UI_FLAG_FULLSCREEN</item>
+        <item>SYSTEM_UI_FLAG_LAYOUT_STABLE</item>
+        <item>SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION</item>
+        <item>SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</item>
+        <item>SYSTEM_UI_FLAG_IMMERSIVE</item>
+        <item>SYSTEM_UI_FLAG_IMMERSIVE_STICKY</item>
+        <item>SYSTEM_UI_FLAG_LIGHT_STATUS_BAR</item>
+        <item>SYSTEM_UI_RESERVED_LEGACY1</item>
+        <item>SYSTEM_UI_RESERVED_LEGACY2</item>
+        <item>SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR</item>
+        <item>STATUS_BAR_HIDDEN</item>
+        <item>STATUS_BAR_VISIBLE</item>
+
+    </string-array>
+
+</resources>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/layout_nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".systemBars.SystemBarsFragment"
+        android:background="@color/purple_200">
+
+        <LinearLayout
+            android:id="@+id/layout_root_system_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:divider="@drawable/bg_divider_objectanimation_list"
+            android:showDividers="middle"
+            android:orientation="vertical">
+
+            <!-- 状态栏 -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardViewStatusBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardBackgroundColor="@color/bg_car_view_greed"
+                android:shadowRadius="2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_status_bar_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_status_bar_title"
+                        android:textColor="#F9FBE7"
+                        android:textSize="@dimen/system_bar_fragment_text_size"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- 状态栏显示或者隐藏 -->
+                    <TextView
+                        android:id="@+id/tv_status_bar_visible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="36dp"
+                        android:text="@string/status_bar_visible_tv_label_text"
+                        android:textColor="#F9FBE7"
+                        android:textSize="@dimen/system_bar_fragment_text_size"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_status_bar_title" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_status_bar_visible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_status_bar_visible"
+                        app:layout_constraintStart_toEndOf="@+id/tv_status_bar_visible"
+                        app:layout_constraintTop_toTopOf="@+id/tv_status_bar_visible" />
+
+
+                    <!-- 状态栏字体颜色（是否高亮） -->
+                    <TextView
+                        android:id="@+id/tv_status_bar_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/status_bar_color_tv_label_text"
+                        android:textColor="#F9FBE7"
+                        android:textSize="@dimen/system_bar_fragment_text_size"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="@+id/tv_status_bar_visible"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_status_bar_visible" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_status_bar_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_status_bar_color"
+                        app:layout_constraintStart_toEndOf="@+id/tv_status_bar_color"
+                        app:layout_constraintTop_toTopOf="@+id/tv_status_bar_color" />
+
+
+                    <!-- 状态栏背景颜色 -->
+                    <TextView
+                        android:id="@+id/tv_status_bar_background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/status_bar_background_tv_label_text"
+                        android:textColor="#F9FBE7"
+                        android:textSize="@dimen/system_bar_fragment_text_size"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="@+id/tv_status_bar_color"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_status_bar_color" />
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chip_group_status_bar_background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/white"
+                        app:singleSelection="true"
+                        android:padding="8dp"
+                        app:layout_constraintStart_toStartOf="@+id/tv_status_bar_background"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_status_bar_background">
+
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="60dp"
+                            android:layout_height="40dp"
+                            style="@style/Widget.MaterialComponents.Chip.Filter"
+                            app:chipBackgroundColor="@color/bg_car_view_1" />
+
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="60dp"
+                            android:layout_height="40dp"
+                            style="@style/Widget.MaterialComponents.Chip.Filter"
+                            app:chipBackgroundColor="@color/bg_car_view_2" />
+
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="60dp"
+                            android:layout_height="40dp"
+                            style="@style/Widget.MaterialComponents.Chip.Filter"
+                            app:chipBackgroundColor="@color/bg_car_view_3" />
+
+                    </com.google.android.material.chip.ChipGroup>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 导航栏 -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardViewNavigationBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardBackgroundColor="@color/bg_car_view_yellow"
+                android:shadowRadius="2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <!-- 导航栏标题 -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_navigation_bar_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_navigation_bar_title"
+                        android:textSize="@dimen/system_bar_fragment_text_size"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <!-- 导航栏显示或者隐藏 -->
+                    <TextView
+                        android:id="@+id/tv_navigation_bar_visible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/navigation_bar_visible_tv_label_text"
+                        android:textColor="#4E342E"
+                        android:textSize="@dimen/system_bar_fragment_text_size"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_navigation_bar_title" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_navigation_bar_visible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_navigation_bar_visible"
+                        app:layout_constraintStart_toEndOf="@+id/tv_navigation_bar_visible"
+                        app:layout_constraintTop_toTopOf="@+id/tv_navigation_bar_visible" />
+
+
+                    <!-- 导航栏按键颜色 -->
+                    <TextView
+                        android:id="@+id/tv_navigation_bar_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/navigation_bar_color_tv_label_text"
+                        android:textColor="#4E342E"
+                        android:textSize="@dimen/system_bar_fragment_text_size"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="@+id/tv_navigation_bar_visible"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_navigation_bar_visible" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_navigation_bar_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_navigation_bar_color"
+                        app:layout_constraintStart_toEndOf="@+id/tv_navigation_bar_color"
+                        app:layout_constraintTop_toTopOf="@+id/tv_navigation_bar_color" />
+
+
+                    <!-- 导航栏背景颜色 -->
+                    <TextView
+                        android:id="@+id/tv_navigation_bar_background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/navigation_bar_background_tv_label_text"
+                        android:textColor="#4E342E"
+                        android:textSize="@dimen/system_bar_fragment_text_size"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="@+id/tv_navigation_bar_color"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_navigation_bar_color" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_navigation_bar_background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_navigation_bar_background"
+                        app:layout_constraintStart_toEndOf="@+id/tv_navigation_bar_background"
+                        app:layout_constraintTop_toTopOf="@+id/tv_navigation_bar_background" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardBackgroundColor="@color/bg_car_view_blue">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_translate_status_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/translate_status_bar"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_translate_status_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_translate_status_bar"
+                        app:layout_constraintStart_toEndOf="@+id/tv_translate_status_bar"
+                        app:layout_constraintTop_toTopOf="@+id/tv_translate_status_bar" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                android:padding="12dp"
+                app:cardBackgroundColor="@color/bg_car_view_blue">
+
+                <LinearLayout
+                    android:id="@+id/layout_system_ui_visible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:divider="@drawable/bg_divider_objectanimation_list"
+                    android:showDividers="middle"
+                    android:orientation="vertical"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>
