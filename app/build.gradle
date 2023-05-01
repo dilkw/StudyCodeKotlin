@@ -37,6 +37,7 @@ android {
 }
 
 configurations.all {
+    // 指定使用依赖包的版本
     resolutionStrategy {
         force 'androidx.media:media:1.0.0'
         //force 'androidx.core:core:1.7.0'

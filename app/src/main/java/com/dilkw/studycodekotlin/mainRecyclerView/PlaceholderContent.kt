@@ -6,20 +6,20 @@ import java.util.HashMap
 
 object PlaceholderContent {
 
-    val ITEMS: MutableList<ItemEnum> = ArrayList()
+    val ITEMS: MutableList<com.dilkw.studycodekotlin.ItemEnum> = ArrayList()
 
-    val ITEM_MAP: MutableMap<Int, ItemEnum> = HashMap()
+    val ITEM_MAP: MutableMap<Int, com.dilkw.studycodekotlin.ItemEnum> = HashMap()
 
     private val COUNT = 25
 
     init {
-        val items = ItemEnum.values()
+        val items = com.dilkw.studycodekotlin.ItemEnum.values()
         for (element in items) {
             addItem(element)
         }
     }
 
-    private fun addItem(item: ItemEnum) {
+    private fun addItem(item: com.dilkw.studycodekotlin.ItemEnum) {
         ITEMS.add(item)
         ITEM_MAP.put(item.code, item)
     }

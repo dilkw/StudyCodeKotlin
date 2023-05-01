@@ -3,7 +3,6 @@ package com.dilkw.studycodekotlin
 import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.NavDestination
 import com.dilkw.studycodekotlin.baseviews.BaseActivity
 import com.dilkw.studycodekotlin.databinding.ActivityMainBinding
 
@@ -17,6 +16,7 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         Log.d(LOG_TAG, "onCreate: ${binding.mainLayout.width}")
+        Log.d(LOG_TAG, "onCreate: ${this@MainActivity.localClassName}")
     }
 
     override fun onStart() {

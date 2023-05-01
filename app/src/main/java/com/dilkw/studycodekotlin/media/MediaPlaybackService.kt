@@ -1,6 +1,5 @@
 package com.dilkw.studycodekotlin.media
 
-import android.animation.ObjectAnimator
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -21,7 +20,6 @@ import android.support.v4.media.session.MediaSessionCompat
 import android.support.v4.media.session.PlaybackStateCompat
 import android.util.Log
 import android.view.KeyEvent
-import android.view.animation.LinearInterpolator
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.media.MediaBrowserServiceCompat
@@ -91,10 +89,6 @@ class MediaPlaybackService : MediaBrowserServiceCompat() {
                 SystemClock.elapsedRealtime()
             )
             setPlaybackState(mStateBuilder.build())
-
-            if (!isActive) {
-                isActive = true
-            }
             val sessionCallback: MediaSessionCompat.Callback =
                 object : MediaSessionCompat.Callback() {
                     private val mPlaylist: MutableList<MediaSessionCompat.QueueItem> =
@@ -193,7 +187,7 @@ class MediaPlaybackService : MediaBrowserServiceCompat() {
                             return
                         }
                         mPreparedMedia = mediaId?.let { getMetadata(this@MediaPlaybackService, it) }
-                        // 注意这里先调用setMetadata，再调用prepareMediaData（该方法有yan），
+                        // 注意这里先调用setMetadata，再调用prepareMediaData（该方法有延迟），
                         setMetadata(mPreparedMedia)
                         // 根据id获取音频相关信息设置给mediaPlayer
                         prepareMediaData(mediaId)
@@ -219,37 +213,40 @@ class MediaPlaybackService : MediaBrowserServiceCompat() {
                         return super.onMediaButtonEvent(mediaButtonEvent)
                     }
 
-                    // 跳转到下一首
+                    // 当调用MediaController.transportControls.SkipToNext()回调该方法跳转到下一首
                     override fun onSkipToNext() {
                         mQueueIndex = (++mQueueIndex % mPlaylist.size)
                         mPreparedMedia = null
                         onPlay()
                     }
 
-                    // 跳转到上一首
+                    // 当调用MediaController.transportControls.SkipToPrevious()回调该方法跳转到上一首
                     override fun onSkipToPrevious() {
                         mQueueIndex = if (mQueueIndex > 0) --mQueueIndex else mPlaylist.size - 1
                         mPreparedMedia = null
                         onPlay()
                     }
 
-                    // 根据id跳转到指定Queue中的某一项项播放
+                    // 根据id跳转到指定Queue中的某一项项播放当调用MediaController.transportControls.SkipToQueueItem()回调该方法
                     override fun onSkipToQueueItem(id: Long) {
                         super.onSkipToQueueItem(id)
                         setNewState(PlaybackStateCompat.STATE_SKIPPING_TO_QUEUE_ITEM)
                     }
 
+                    // 调用MediaController.transportControls.sendCustomAction()时回调该方法
                     override fun onCustomAction(action: String?, extras: Bundle?) {
                         super.onCustomAction(action, extras)
                         Log.d(TAG, "onCustomAction: $action")
                     }
 
+                    // 调用MediaController.transportControls.setRepeatMode()回调该方法
                     override fun onSetRepeatMode(repeatMode: Int) {
                         setRepeatMode(repeatMode)
                         super.onSetRepeatMode(repeatMode)
                         Log.d(TAG, "onSetRepeatMode: $repeatMode")
                     }
 
+                    // 调用MediaController.transportControls.seekTo()回调该方法
                     override fun onSeekTo(pos: Long) {
                         Log.d(TAG, "onSeekTo: $pos")
                         if(mMediaPlayer?.duration != null ){
@@ -257,7 +254,6 @@ class MediaPlaybackService : MediaBrowserServiceCompat() {
                                 mOnCompletionListener.onCompletion(mMediaPlayer)
                                 return
                             }
-
                         }
                         mMediaPlayer?.seekTo(pos.toInt())
                     }
@@ -266,7 +262,7 @@ class MediaPlaybackService : MediaBrowserServiceCompat() {
             // MySessionCallback() has methods that handle callbacks from a media controller
             setCallback(sessionCallback)
 
-            // Set the session's token so that client activities can communicate with it.
+            // Set the session's token so that studycodekotlin activities can communicate with it.
             setSessionToken(sessionToken)
         }
     }
@@ -287,8 +283,6 @@ class MediaPlaybackService : MediaBrowserServiceCompat() {
             assetFileDescriptor.length
         )
 
-        // 是否为单曲循环
-        mMediaPlayer!!.isLooping = mIsSingleLoop
         mMediaPlayer?.prepare()
     }
 
@@ -298,9 +292,6 @@ class MediaPlaybackService : MediaBrowserServiceCompat() {
     }
     
     private var mState = 0
-    private var mIsListLoop = false
-    private var mIsSingleLoop = false
-
     private fun initMediaPlayer() {
         mMediaPlayer = MediaPlayer()
 
@@ -347,7 +338,7 @@ class MediaPlaybackService : MediaBrowserServiceCompat() {
             return actions
         }
 
-    // This is the main reducer for the player state machine.
+    // 更新状态
     private fun setNewState(@PlaybackStateCompat.State newPlayerState: Int): PlaybackStateCompat {
         mState = newPlayerState
 
@@ -362,16 +353,20 @@ class MediaPlaybackService : MediaBrowserServiceCompat() {
             )
         }
 
+        // 将当前播放进度和总长度传递给UI以用于更新
         val dataBundle = Bundle()
         mMediaPlayer?.currentPosition?.let { dataBundle.putInt("CURRENT_POSITION", it) }
         mMediaPlayer?.duration?.let { dataBundle.putInt("DURATION", it) }
         stateBuilder.setExtras(dataBundle)
         val stateCompat = stateBuilder.build()
+
+        // 该方法会触发MediaControllerCompat.Callback.onPlaybackStateChanged()回调
         mMediaSession.setPlaybackState(stateCompat)
 
         return stateCompat
     }
 
+    // 初始化通知管理器mNotificationManager和Action
     private fun initNotificationManagerAndAction() {
         mNotificationManager =
             this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -449,6 +444,7 @@ class MediaPlaybackService : MediaBrowserServiceCompat() {
         }
     }
 
+    // 在服务被销毁时，释放资源
     override fun onDestroy() {
         setNewState(PlaybackStateCompat.STATE_STOPPED)
         if (mMediaPlayer != null) {
@@ -458,7 +454,11 @@ class MediaPlaybackService : MediaBrowserServiceCompat() {
         mMediaSession.release()
     }
 
-
+    /**
+     * 处理通知栏信息创建
+     * @param  stateCompat: 播放状态对象
+     * @return NotificationCompat.Builder: notification建造者对象
+     */
     private fun handleMediaNotification(stateCompat: PlaybackStateCompat): NotificationCompat.Builder {
         val builder = NotificationCompat.Builder(this, CHANNEL_ID).apply {
 
@@ -504,6 +504,11 @@ class MediaPlaybackService : MediaBrowserServiceCompat() {
         return builder
     }
 
+    /**
+     * 处理通知栏信息中的action
+     * @param builder:      Notification建造者
+     * @param stateCompat:  播放状态对象
+     */
     private fun handleNotificationAction(builder: NotificationCompat.Builder, stateCompat: PlaybackStateCompat) {
         // 添加”上一首“按钮，根据 stateCompat.actions 和 ACTION_SKIP_TO_PREVIOUS 进行"与"运算，判断是否支持”上一首“这个操作命令
         if ((stateCompat.actions and PlaybackStateCompat.ACTION_SKIP_TO_PREVIOUS) != 0L) {

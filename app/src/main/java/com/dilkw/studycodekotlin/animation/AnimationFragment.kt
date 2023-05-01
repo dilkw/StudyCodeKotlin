@@ -9,7 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.dilkw.studycodekotlin.R
 import com.dilkw.studycodekotlin.databinding.FragmentAnimationBinding
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class AnimationFragment() : Fragment() {

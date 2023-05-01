@@ -1,6 +1,5 @@
 package com.dilkw.studycodekotlin.animation
 
-import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.os.Build

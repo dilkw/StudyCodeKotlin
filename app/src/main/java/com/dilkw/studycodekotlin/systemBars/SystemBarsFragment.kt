@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowInsetsController
-import android.view.WindowInsetsController.BEHAVIOR_DEFAULT
 import androidx.core.view.*
 import androidx.databinding.DataBindingUtil
 import com.dilkw.studycodekotlin.R

@@ -11,8 +11,8 @@ import android.view.ViewGroup
 import android.webkit.*
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.dilkw.studycodekotlin.baseviews.BaseFragment
 import com.dilkw.studycodekotlin.R
+import com.dilkw.studycodekotlin.baseviews.BaseFragment
 import com.dilkw.studycodekotlin.databinding.FragmentWebViewBinding
 import java.lang.Thread.sleep
 

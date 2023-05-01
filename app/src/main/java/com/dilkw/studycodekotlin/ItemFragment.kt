@@ -90,9 +90,9 @@ class ItemFragment : Fragment() {
 
         @JvmStatic
         fun newInstance(columnCount: Int) =
-            ItemFragment().apply {
+            com.dilkw.studycodekotlin.ItemFragment().apply {
                 arguments = Bundle().apply {
-                    putInt(ARG_COLUMN_COUNT, columnCount)
+                    putInt(com.dilkw.studycodekotlin.ItemFragment.Companion.ARG_COLUMN_COUNT, columnCount)
                 }
             }
     }

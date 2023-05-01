@@ -9,11 +9,9 @@ import android.content.Intent
 import android.os.Build
 import android.os.IBinder
 import android.util.Log
-import android.view.View
 import android.widget.RemoteViews
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-import androidx.media.app.NotificationCompat.MediaStyle
 import com.dilkw.studycodekotlin.R
 
 /**

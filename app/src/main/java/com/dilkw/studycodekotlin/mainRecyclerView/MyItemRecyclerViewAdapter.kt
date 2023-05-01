@@ -5,12 +5,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import com.dilkw.studycodekotlin.ItemEnum
-
 import com.dilkw.studycodekotlin.databinding.FragmentItemBinding
-import com.dilkw.studycodekotlin.databinding.FragmentItemListBinding
 
 class MyItemRecyclerViewAdapter(
-    private val values: List<ItemEnum>,
+    private val values: List<com.dilkw.studycodekotlin.ItemEnum>,
     private val itemClickListener: ItemClickListener?
 ) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
 
@@ -45,7 +43,7 @@ class MyItemRecyclerViewAdapter(
     }
 
     interface ItemClickListener {
-        fun itemOnClick(itemEnum: ItemEnum)
+        fun itemOnClick(itemEnum: com.dilkw.studycodekotlin.ItemEnum)
     }
 
 }

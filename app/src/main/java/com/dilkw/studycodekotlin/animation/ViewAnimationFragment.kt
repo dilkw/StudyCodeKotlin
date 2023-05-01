@@ -1,7 +1,6 @@
 package com.dilkw.studycodekotlin.animation
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -36,7 +35,7 @@ class ViewAnimationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnAnimationStart.setOnClickListener {
             when(binding.chipGroup.checkedChipId) {
-                R.id.chip_alpha -> binding.tv.startAnimation(AnimationUtils.loadAnimation(requireContext(),R.anim.view_animation_alpha))
+                R.id.chip_alpha -> binding.tv.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.view_animation_alpha))
                 R.id.chip_scale -> binding.tv.startAnimation(AnimationUtils.loadAnimation(requireContext(),R.anim.view_animation_scale))
                 R.id.chip_translate -> binding.tv.startAnimation(AnimationUtils.loadAnimation(requireContext(),R.anim.view_animation_translate))
                 R.id.chip_rotate -> binding.tv.startAnimation(AnimationUtils.loadAnimation(requireContext(),R.anim.view_animation_rotate))

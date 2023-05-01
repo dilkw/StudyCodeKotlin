@@ -1,7 +1,6 @@
 package com.dilkw.studycodekotlin.media
 
 import android.animation.ObjectAnimator
-import android.animation.ValueAnimator
 import android.content.ComponentName
 import android.content.Intent
 import android.media.AudioManager
@@ -87,6 +86,7 @@ class MediaPlayerActivity : AppCompatActivity() {
 
 
         mMediaControllerCompatCallback = object: MediaControllerCompat.Callback() {
+            // MediaSession调用setMetadata()方法时会回调该方法
             override fun onMetadataChanged(metadata: MediaMetadataCompat?) {
                 if (metadata != null) {
                     Log.d(TAG, "onMetadataChanged: ${metadata.mediaMetadata}")
@@ -97,6 +97,7 @@ class MediaPlayerActivity : AppCompatActivity() {
                 }
             }
 
+            // MediaSession调用setPlaybackState()方法时会回调该方法
             override fun onPlaybackStateChanged(state: PlaybackStateCompat?) {
                 Log.d(TAG, "onPlaybackStateChanged: $state")
                 if (state != null) {
@@ -113,7 +114,7 @@ class MediaPlayerActivity : AppCompatActivity() {
                     Log.d(TAG, "onPlaybackStateChanged: currentPosition: $currentPosition \n   duration: $duration")
                     if (currentPosition != null && duration != null) {
                         mSeekBarMedia.max = duration
-                        handleSeekBar(currentPosition, duration, false)
+                        handleSeekBar(currentPosition, duration)
                     }
 
                 }
@@ -128,13 +129,16 @@ class MediaPlayerActivity : AppCompatActivity() {
             }
         }
 
+        // seekBar进度改变监听
         mSeekBarMedia.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
+            // 当进度条改变（无论是否为用户主动点击改变）回调该方法
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if (fromUser) {
                     Log.d(TAG, "onProgressChanged: $progress")
                 }
             }
 
+            // 当用户点击按下进度条回调该方法
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
                 if (seekBar != null) {
                     if (mProgressAnimator?.isStarted == true) {
@@ -145,11 +149,12 @@ class MediaPlayerActivity : AppCompatActivity() {
 
             }
 
+            // 当用户点击抬起进度条回调该方法
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
                 if (seekBar != null) {
                     Log.d(TAG, "onStopTrackingTouch: ${seekBar.progress.toLong()}")
                     mMediaController.transportControls.seekTo(seekBar.progress.toLong())
-                    handleSeekBar(seekBar.progress, mSeekBarMedia.max, true)
+                    handleSeekBar(seekBar.progress, mSeekBarMedia.max)
                 }
             }
 
@@ -207,8 +212,10 @@ class MediaPlayerActivity : AppCompatActivity() {
 
     /**
      * 当播放状态发生变化时，处理动画以及进度条的更新
+     * @param currentPosition   进度条当前位置
+     * @param maxPosition:      进度条最大位置
      */
-    private fun handleSeekBar(currentPosition: Int, maxPosition: Int, isStopTrackingTouch: Boolean) {
+    private fun handleSeekBar(currentPosition: Int, maxPosition: Int) {
         if (mProgressAnimator == null) {
             mProgressAnimator = ObjectAnimator.ofInt(mSeekBarMedia, "progress", currentPosition, maxPosition)
             mProgressAnimator!!.interpolator = LinearInterpolator()

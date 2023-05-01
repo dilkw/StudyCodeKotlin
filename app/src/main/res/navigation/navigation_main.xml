@@ -22,15 +22,15 @@
     </fragment>
     <fragment
         android:id="@+id/animationFragment"
-        android:name="com.dilkw.studycodekotlin.animation.AnimationFragment"
+        android:name="com.dilkw.client.animation.AnimationFragment"
         android:label="fragment_animation"
         tools:layout="@layout/fragment_animation" />
     <fragment
         android:id="@+id/webViewFragment"
-        android:name="com.dilkw.studycodekotlin.webview.WebViewFragment"
+        android:name="com.dilkw.client.webview.WebViewFragment"
         android:label="WebViewFragment" />
     <fragment
         android:id="@+id/systemBarsFragment"
-        android:name="com.dilkw.studycodekotlin.systemBars.SystemBarsFragment"
+        android:name="com.dilkw.client.systemBars.SystemBarsFragment"
         android:label="SystemBarsFragment" />
 </navigation>

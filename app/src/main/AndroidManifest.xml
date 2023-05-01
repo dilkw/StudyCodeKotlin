@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dilkw.studycodekotlin"
     xmlns:tools="http://schemas.android.com/tools">
+
     <!-- 网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 前台服务权限 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-
-<!--    android:dataExtractionRules="@xml/data_extraction_rules"-->
-<!--    android:fullBackupContent="@xml/backup_rules"-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,21 +16,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyCodeKotlin">
-        <activity
-            android:name="com.dilkw.studycodekotlin.media.MediaPlayerActivity"
-            android:launchMode="singleTop"
-            android:exported="true">
-        </activity>
+
+        <!--aidl接口跨进程调用service-->
+        <service
+            android:name="com.dilkw.studycodekotlin.aidl.AidlService"
+            android:exported="true" />
 
         <activity
-            android:name=".MainActivityB"
+            android:name="com.dilkw.studycodekotlin.media.MediaPlayerActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.dilkw.studycodekotlin.MainActivityB"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivityA"
+            android:name="com.dilkw.studycodekotlin.MainActivityA"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -45,7 +48,7 @@
             android:permission="TODO" />
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.dilkw.studycodekotlin.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,20 +57,21 @@
             </intent-filter>
         </activity>
 
-
         <service
             android:name="com.dilkw.studycodekotlin.media.MediaPlaybackService"
             android:enabled="true"
-            android:exported="true">
+            android:exported="false"
+            android:permission="TODO">
             <intent-filter>
-                <action android:name="android.media.browse.MediaBrowserService"/>
+                <action android:name="android.media.browse.MediaBrowserService" />
             </intent-filter>
         </service>
 
-        <receiver android:name="androidx.media.session.MediaButtonReceiver"
+        <receiver
+            android:name="androidx.media.session.MediaButtonReceiver"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
             </intent-filter>
         </receiver>
 
@@ -78,9 +82,7 @@
 
         <activity
             android:name="com.dilkw.studycodekotlin.service.ServiceActivity"
-            android:exported="true">
-        </activity>
-
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.dilkw.studycodekotlin
+package com.dilkw.client
 
 import org.junit.Test
 

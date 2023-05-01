@@ -3,13 +3,10 @@ package com.dilkw.studycodekotlin.service
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.view.View.OnClickListener
 import android.widget.RemoteViews
 import androidx.annotation.RequiresApi
 import com.dilkw.studycodekotlin.R
