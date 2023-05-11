@@ -53,12 +53,9 @@ class ItemFragment : Fragment() {
                                 ItemEnum.SERVICES -> navController?.navigate(R.id.action_itemFragment_to_animationFragment)
                                 ItemEnum.WEB_VIEW -> navController?.navigate(R.id.action_itemFragment_to_webViewFragment)
                                 ItemEnum.SYSTEM_BARS -> navController?.navigate(R.id.action_itemFragment_to_systemBarsFragment)
-                                ItemEnum.SERVICE -> {
-                                    requireActivity().startActivity(Intent(requireActivity(), ServiceActivity::class.java))
-                                }
-                                ItemEnum.MEDIA -> {
-                                    requireActivity().startActivity(Intent(requireActivity(), MediaPlayerActivity::class.java))
-                                }
+                                ItemEnum.API -> navController?.navigate(R.id.action_itemFragment_to_httpDemoFragment)
+                                ItemEnum.SERVICE -> requireActivity().startActivity(Intent(requireActivity(), ServiceActivity::class.java))
+                                ItemEnum.MEDIA -> requireActivity().startActivity(Intent(requireActivity(), MediaPlayerActivity::class.java))
                             }
                         }
                 })

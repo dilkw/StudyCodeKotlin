@@ -7,7 +7,8 @@ enum class ItemEnum(code: Int, itemName: String) {
     WEB_VIEW(102, "WebView"),
     SYSTEM_BARS(103, "SystemBars"),
     SERVICE(104, "Service"),
-    MEDIA(105, "media音频");
+    MEDIA(105, "media音频"),
+    API(106, "网络库应用");
 
     var code: Int
     var itemName: String

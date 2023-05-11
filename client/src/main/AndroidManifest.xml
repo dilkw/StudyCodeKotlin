@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dilkw.client">
 
+    <!-- 指定与之交互的其他应用程序(其他进程) api >= 30 -->
     <queries>
         <package android:name="com.dilkw.studycodekotlin"/>
     </queries>

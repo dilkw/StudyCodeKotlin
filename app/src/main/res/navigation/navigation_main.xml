@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_itemFragment_to_systemBarsFragment"
             app:destination="@id/systemBarsFragment" />
+        <action
+            android:id="@+id/action_itemFragment_to_httpDemoFragment"
+            app:destination="@id/httpDemoFragment" />
     </fragment>
     <fragment
         android:id="@+id/animationFragment"
@@ -33,4 +36,8 @@
         android:id="@+id/systemBarsFragment"
         android:name="com.dilkw.client.systemBars.SystemBarsFragment"
         android:label="SystemBarsFragment" />
+    <fragment
+        android:id="@+id/httpDemoFragment"
+        android:name="com.dilkw.studycodekotlin.api.HttpDemoFragment"
+        android:label="HttpDemoFragment" />
 </navigation>
