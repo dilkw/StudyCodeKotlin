@@ -1,6 +1,7 @@
 package com.dilkw.studycodekotlin.api
 
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,10 +11,7 @@ import androidx.databinding.DataBindingUtil
 import com.dilkw.studycodekotlin.R
 import com.dilkw.studycodekotlin.databinding.FragmentHttpDemoBinding
 import okhttp3.*
-import java.io.BufferedReader
 import java.io.IOException
-import java.io.StringBufferInputStream
-import java.nio.Buffer
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -55,6 +53,7 @@ class HttpDemoFragment : Fragment() {
         val request = Request.Builder()
             .url("https://www.baidu.com")
             .build()
+        binding.tvOkHttpResponse.movementMethod = ScrollingMovementMethod.getInstance()
         binding.btnOkHttpRequest.setOnClickListener {
             client.newCall(request).enqueue(object:Callback{
                 override fun onFailure(call: Call, e: IOException) {
@@ -64,15 +63,7 @@ class HttpDemoFragment : Fragment() {
                 }
 
                 override fun onResponse(call: Call, response: Response) {
-                    Log.d(LOG_TAG, "onResponse: \n" +
-                            "${response.code}\n " +
-                            "message:${response.message}\n"
-                            + response.body?.byteString().toString()
-                    )
-
                     // 以流方式读取数据
-                    response.body?.byteStream()?.mark(0)
-                    response.body?.byteStream()?.reset()
                     val reader = response.body?.byteStream()?.bufferedReader()
                     val stringBuilder = StringBuilder()
                     if (reader != null) {
@@ -83,6 +74,12 @@ class HttpDemoFragment : Fragment() {
                         }catch (e: IOException) {
                             e.printStackTrace()
                         }
+
+                        Log.d(LOG_TAG, "onResponse: \n" +
+                                "${response.code}\n " +
+                                "message:${response.message}\n"
+                                + stringBuilder
+                        )
 
                         requireActivity().runOnUiThread {
                             binding.tvOkHttpResponse.text = stringBuilder

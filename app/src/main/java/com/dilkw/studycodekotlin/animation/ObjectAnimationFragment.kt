@@ -61,14 +61,9 @@ class ObjectAnimationFragment : Fragment() {
         val animatorStatisticalChartView: ObjectAnimator =
             ObjectAnimator.ofFloat(binding.statisticalChartView, "progress", 0f, 50f)
         //动画每次执行的时间（毫秒数）
-        //动画每次执行的时间（毫秒数）
         animatorStatisticalChartView.duration = 3000
         //设置动画执行次数（ValueAnimator.INFINITE为无限）
-        //设置动画执行次数（ValueAnimator.INFINITE为无限）
         animatorStatisticalChartView.repeatCount = 0
-        //当动画执行次数大于零或是无限（ValueAnimator.INFINITE）时setRepeatMode才有效
-        //animator1.setRepeatMode(ValueAnimator.RESTART);
-        //设置插值（匀速，创建插值对象）
         //当动画执行次数大于零或是无限（ValueAnimator.INFINITE）时setRepeatMode才有效
         //animator1.setRepeatMode(ValueAnimator.RESTART);
         //设置插值（匀速，创建插值对象）
@@ -80,15 +75,11 @@ class ObjectAnimationFragment : Fragment() {
         // 时钟动画
         val animatorRing: ObjectAnimator = ObjectAnimator.ofInt(binding.ring, "mSeconds", 0, 60)
         //动画每次执行的时间（毫秒数）
-        //动画每次执行的时间（毫秒数）
         animatorRing.duration = 60000
-        //设置动画执行次数（ValueAnimator.INFINITE为无限）
         //设置动画执行次数（ValueAnimator.INFINITE为无限）
         animatorRing.repeatCount = ValueAnimator.INFINITE
         //当动画执行次数大于零或是无限（ValueAnimator.INFINITE）时setRepeatMode才有效
-        //当动画执行次数大于零或是无限（ValueAnimator.INFINITE）时setRepeatMode才有效
         animatorRing.repeatMode = ValueAnimator.RESTART
-        //设置插值（匀速，创建插值对象）
         //设置插值（匀速，创建插值对象）
         animatorRing.interpolator = LinearInterpolator()
 

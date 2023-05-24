@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">StudyCodeKotlin</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_label">Hello World</string>
     <string name="view_animation_alpha">alpha</string>
     <string name="view_animation_scale">scale</string>
     <string name="view_animation_translate">translate</string>
@@ -77,5 +77,9 @@
 
     <!-- api模块 -->
     <string name="btn_okHttp_label">OkHttp请求</string>
+    <string name="tv_response_label">请求返回数据：</string>
+
+    <!-- 自定义View模块 -->
+    <string name="customize_view_title">自定义View</string>
 
 </resources>

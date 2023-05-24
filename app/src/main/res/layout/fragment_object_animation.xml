@@ -35,7 +35,7 @@
                     android:layout_marginTop="32dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@color/purple_500"
-                    android:text="@string/hello_blank_fragment" />
+                    android:text="@string/text_label" />
 
                 <include
                     android:id="@+id/btn_tv_animation_start"

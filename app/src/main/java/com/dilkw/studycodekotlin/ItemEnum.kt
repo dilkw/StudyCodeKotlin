@@ -8,7 +8,8 @@ enum class ItemEnum(code: Int, itemName: String) {
     SYSTEM_BARS(103, "SystemBars"),
     SERVICE(104, "Service"),
     MEDIA(105, "media音频"),
-    API(106, "网络库应用");
+    API(106, "网络库应用"),
+    CUSTOMIZE_VIEW(107, "自定义View");
 
     var code: Int
     var itemName: String

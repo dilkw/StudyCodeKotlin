@@ -1,4 +1,4 @@
-package com.dilkw.studycodekotlin.util
+package com.dilkw.studycodekotlin.utils
 
 import android.content.res.Resources
 import android.util.TypedValue

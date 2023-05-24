@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:background="@color/translate_black"
-            android:text="@string/hello_blank_fragment"
+            android:text="@string/text_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/chipGroup" />

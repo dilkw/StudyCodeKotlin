@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_itemFragment_to_httpDemoFragment"
             app:destination="@id/httpDemoFragment" />
+        <action
+            android:id="@+id/action_itemFragment_to_customizeViewFragment"
+            app:destination="@id/customizeViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/animationFragment"
@@ -40,4 +43,9 @@
         android:id="@+id/httpDemoFragment"
         android:name="com.dilkw.studycodekotlin.api.HttpDemoFragment"
         android:label="HttpDemoFragment" />
+    <fragment
+        android:id="@+id/customizeViewFragment"
+        android:name="com.dilkw.studycodekotlin.customizeView.CustomizeViewFragment"
+        android:label="fragment_customize_view"
+        tools:layout="@layout/fragment_customize_view" />
 </navigation>

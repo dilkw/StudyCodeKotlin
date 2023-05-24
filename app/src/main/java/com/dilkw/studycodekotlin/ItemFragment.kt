@@ -56,6 +56,7 @@ class ItemFragment : Fragment() {
                                 ItemEnum.API -> navController?.navigate(R.id.action_itemFragment_to_httpDemoFragment)
                                 ItemEnum.SERVICE -> requireActivity().startActivity(Intent(requireActivity(), ServiceActivity::class.java))
                                 ItemEnum.MEDIA -> requireActivity().startActivity(Intent(requireActivity(), MediaPlayerActivity::class.java))
+                                ItemEnum.CUSTOMIZE_VIEW -> navController?.navigate(R.id.action_itemFragment_to_customizeViewFragment)
                             }
                         }
                 })

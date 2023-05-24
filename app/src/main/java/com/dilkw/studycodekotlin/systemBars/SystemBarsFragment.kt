@@ -12,7 +12,7 @@ import androidx.core.view.*
 import androidx.databinding.DataBindingUtil
 import com.dilkw.studycodekotlin.R
 import com.dilkw.studycodekotlin.databinding.FragmentSystemBarsBinding
-import com.dilkw.studycodekotlin.util.TypedValueUtil
+import com.dilkw.studycodekotlin.utils.TypedValueUtil
 import com.google.android.material.chip.Chip
 import com.google.android.material.switchmaterial.SwitchMaterial
 import com.google.android.material.textview.MaterialTextView
