@@ -57,6 +57,8 @@ class ItemFragment : Fragment() {
                                 ItemEnum.SERVICE -> requireActivity().startActivity(Intent(requireActivity(), ServiceActivity::class.java))
                                 ItemEnum.MEDIA -> requireActivity().startActivity(Intent(requireActivity(), MediaPlayerActivity::class.java))
                                 ItemEnum.CUSTOMIZE_VIEW -> navController?.navigate(R.id.action_itemFragment_to_customizeViewFragment)
+                                ItemEnum.BUG_FIX -> navController?.navigate(R.id.action_itemFragment_to_bugFixFragment)
+                                ItemEnum.COROUTINES -> navController?.navigate(R.id.action_itemFragment_to_coroutinesFragment)
                             }
                         }
                 })

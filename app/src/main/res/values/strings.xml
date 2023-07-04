@@ -82,4 +82,13 @@
     <!-- 自定义View模块 -->
     <string name="customize_view_title">自定义View</string>
 
+    <!-- bug修复记录 -->
+    <string name="bug_fix_animation_label">动画测试</string>
+    <string name="bug_fix_animation_btn_start_text">启动（显示/隐藏）</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- 协程coroutines -->
+    <string name="coroutines_btn_start">启动</string>
+
 </resources>

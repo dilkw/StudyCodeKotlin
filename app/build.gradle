@@ -34,6 +34,10 @@ android {
     dataBinding {
         enabled true
     }
+
+    packagingOptions {
+        resources.excludes += "DebugProbesKt.bin"
+    }
 }
 
 configurations.all {
@@ -70,5 +74,10 @@ dependencies {
 
     // okhttp依赖
     implementation 'com.squareup.okhttp3:okhttp:4.11.0'
+
+    // flexbox流式布局依赖（google官方出品：https://github.com/google/flexbox-layout）
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.0")
 
 }

@@ -9,7 +9,9 @@ enum class ItemEnum(code: Int, itemName: String) {
     SERVICE(104, "Service"),
     MEDIA(105, "media音频"),
     API(106, "网络库应用"),
-    CUSTOMIZE_VIEW(107, "自定义View");
+    CUSTOMIZE_VIEW(107, "自定义View"),
+    BUG_FIX(108, "bug修复测试"),
+    COROUTINES(109, "协程");
 
     var code: Int
     var itemName: String

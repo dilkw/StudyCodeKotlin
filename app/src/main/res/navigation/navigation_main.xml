@@ -25,6 +25,12 @@
         <action
             android:id="@+id/action_itemFragment_to_customizeViewFragment"
             app:destination="@id/customizeViewFragment" />
+        <action
+            android:id="@+id/action_itemFragment_to_bugFixFragment"
+            app:destination="@id/bugFixFragment" />
+        <action
+            android:id="@+id/action_itemFragment_to_coroutinesFragment"
+            app:destination="@id/coroutinesFragment" />
     </fragment>
     <fragment
         android:id="@+id/animationFragment"
@@ -48,4 +54,12 @@
         android:name="com.dilkw.studycodekotlin.customizeView.CustomizeViewFragment"
         android:label="fragment_customize_view"
         tools:layout="@layout/fragment_customize_view" />
+    <fragment
+        android:id="@+id/bugFixFragment"
+        android:name="com.dilkw.studycodekotlin.bugfix.BugFixFragment"
+        android:label="BugFixFragment" />
+    <fragment
+        android:id="@+id/coroutinesFragment"
+        android:name="com.dilkw.studycodekotlin.coroutines.CoroutinesFragment"
+        android:label="CoroutinesFragment" />
 </navigation>
