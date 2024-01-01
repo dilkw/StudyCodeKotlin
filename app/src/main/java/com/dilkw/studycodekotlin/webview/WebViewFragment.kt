@@ -16,6 +16,8 @@ import com.dilkw.studycodekotlin.baseviews.BaseFragment
 import com.dilkw.studycodekotlin.databinding.FragmentWebViewBinding
 import java.lang.Thread.sleep
 
+
+// file:///android_asset/web/index.html
 class WebViewFragment : BaseFragment() {
 
     private val LOG_TAG = "WebViewFragment"

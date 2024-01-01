@@ -59,6 +59,7 @@ class ItemFragment : Fragment() {
                                 ItemEnum.CUSTOMIZE_VIEW -> navController?.navigate(R.id.action_itemFragment_to_customizeViewFragment)
                                 ItemEnum.BUG_FIX -> navController?.navigate(R.id.action_itemFragment_to_bugFixFragment)
                                 ItemEnum.COROUTINES -> navController?.navigate(R.id.action_itemFragment_to_coroutinesFragment)
+                                ItemEnum.AUDIO_VIDEO -> navController?.navigate(R.id.action_itemFragment_to_audioVideoFragment)
                             }
                         }
                 })

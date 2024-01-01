@@ -16,7 +16,6 @@
         android:contentDescription="@string/foreground_service_notification_icon_text" />
 
     <TextView
-        android:id="@+id/tv_notification_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/img_notification_icon"

@@ -2,7 +2,6 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation_main"
     app:startDestination="@id/itemFragment">
 
     <fragment
@@ -31,23 +30,29 @@
         <action
             android:id="@+id/action_itemFragment_to_coroutinesFragment"
             app:destination="@id/coroutinesFragment" />
+        <action
+            android:id="@+id/action_itemFragment_to_retrofitFragment"
+            app:destination="@id/HttpDemoFragment" />
+        <action
+            android:id="@+id/action_itemFragment_to_audioVideoFragment"
+            app:destination="@id/audioVideoFragment" />
     </fragment>
     <fragment
         android:id="@+id/animationFragment"
-        android:name="com.dilkw.client.animation.AnimationFragment"
+        android:name="com.dilkw.studycodekotlin.animation.AnimationFragment"
         android:label="fragment_animation"
         tools:layout="@layout/fragment_animation" />
     <fragment
         android:id="@+id/webViewFragment"
-        android:name="com.dilkw.client.webview.WebViewFragment"
+        android:name="com.dilkw.studycodekotlin.webview.WebViewFragment"
         android:label="WebViewFragment" />
     <fragment
         android:id="@+id/systemBarsFragment"
-        android:name="com.dilkw.client.systemBars.SystemBarsFragment"
+        android:name="com.dilkw.studycodekotlin.systemBars.SystemBarsFragment"
         android:label="SystemBarsFragment" />
     <fragment
         android:id="@+id/httpDemoFragment"
-        android:name="com.dilkw.studycodekotlin.api.HttpDemoFragment"
+        android:name="com.dilkw.studycodekotlin.network.HttpDemoFragment"
         android:label="HttpDemoFragment" />
     <fragment
         android:id="@+id/customizeViewFragment"
@@ -62,4 +67,12 @@
         android:id="@+id/coroutinesFragment"
         android:name="com.dilkw.studycodekotlin.coroutines.CoroutinesFragment"
         android:label="CoroutinesFragment" />
+    <fragment
+        android:id="@+id/HttpDemoFragment"
+        android:name="com.dilkw.studycodekotlin.network.HttpDemoFragment"
+        android:label="HttpDemoFragment" />
+    <fragment
+        android:id="@+id/audioVideoFragment"
+        android:name="com.dilkw.studycodekotlin.AudioVideo.AudioVideoFragment"
+        android:label="AudioVideoFragment" />
 </navigation>

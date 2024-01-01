@@ -1,0 +1,30 @@
+plugins {
+    id 'java-gradle-plugin'
+}
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    //引入 Gradle 相关 Api
+    implementation gradleApi()
+    implementation 'com.android.tools.build:gradle:7.3.0'
+    implementation 'com.android.tools:common:30.3.0'
+}
+
+//声明插件
+gradlePlugin {
+    plugins {
+        DependencesPlugin {
+            id = 'com.dilkw.dilkwGradlePlugin'
+            implementationClass = 'com.dilkw.plugins.DilkwGradlePlugin'
+        }
+    }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}

@@ -11,7 +11,8 @@ enum class ItemEnum(code: Int, itemName: String) {
     API(106, "网络库应用"),
     CUSTOMIZE_VIEW(107, "自定义View"),
     BUG_FIX(108, "bug修复测试"),
-    COROUTINES(109, "协程");
+    COROUTINES(109, "协程"),
+    AUDIO_VIDEO(110, "视频");
 
     var code: Int
     var itemName: String

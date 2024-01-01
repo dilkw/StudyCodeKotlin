@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.dilkw.studycodekotlin.R
 import com.dilkw.studycodekotlin.databinding.FragmentBugFixBinding
@@ -57,6 +58,7 @@ class BugFixFragment : Fragment() {
                     sleep(3000)
                     Log.d(TAG, "run: ")
                     binding.tvMask.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.drogdown_mask_out)
+                    this.interrupt()
                 }
             }
         }
@@ -68,9 +70,8 @@ class BugFixFragment : Fragment() {
 //            isVisible = !isVisible
 
             binding.tvMask.visibility = View.GONE
-            thread.start()
-//            binding.tvMask.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.drogdown_mask_out)
-//            binding.tvMask.startAnimation(binding.tvMask.animation)
+            binding.tvMask.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.drogdown_mask_out)
+            //binding.tvMask.startAnimation(binding.tvMask.animation)
             Log.d(TAG, "bugfix click: ${if (binding.tvMask.animation != null) binding.tvMask.animation.toString() else "animation is null"}")
         }
         binding.tv.setOnClickListener {
@@ -82,7 +83,8 @@ class BugFixFragment : Fragment() {
         }
         
         binding.btnGetAnimation.setOnClickListener {
-            Log.d(TAG, "onViewCreated: ${if (binding.tvMask.animation==null) "animation is null" else "animation notnull"}")
+            //Log.d(TAG, "onViewCreated: ${if (binding.tvMask.animation==null) "animation is null" else "animation notnull"}")
+            Toast.makeText(requireContext(), "onViewCreated: ${if (binding.tvMask.animation==null) "animation is null" else "animation notnull"}", Toast.LENGTH_SHORT).show()
         }
     }
 

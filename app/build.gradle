@@ -1,7 +1,13 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
+    //id 'kotlin-kapt'
+}
+
+apply plugin: 'com.dilkw.dilkwGradlePlugin'
+
+dilkwExtension {
+    name 'dilkw?'
 }
 
 android {
@@ -18,18 +24,50 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        debug {
+            // Specifies the path to your keystore file.
+            storeFile file("../keystore/debug_keystore.jks")
+            // Specifies the password for your keystore.
+            storePassword "dilkw250469"
+            // Specifies the identifying name for your key.
+            keyAlias "studycodekotlin_debug_key"
+            // Specifies the password for your key.
+            keyPassword "dilkw250469"
+        }
+    }
+
+    // 构建类型，常用类型包括
+    //      默认类型：debug（测试版） release（发布版）
+    //      自定义 name { 属性 }
     buildTypes {
+
+        debug {
+            // Adds the "release" signing configuration to the release build type.
+            signingConfig signingConfigs.debug
+        }
+
+        internal {
+            initWith debug
+            signingConfig signingConfigs.debug
+        }
+
+        free {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '11'
     }
     dataBinding {
         enabled true
@@ -78,6 +116,59 @@ dependencies {
     // flexbox流式布局依赖（google官方出品：https://github.com/google/flexbox-layout）
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.0")
+    implementation('org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3')
+
+    // retrofit依赖
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+    // gson依赖
+    //implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // HLS 流媒体
+    implementation "androidx.media3:media3-exoplayer-hls:1.1.0"
+    implementation "androidx.media3:media3-exoplayer:1.1.0"
+    implementation "androidx.media3:media3-exoplayer-dash:1.1.0"
+    implementation "androidx.media3:media3-ui:1.1.0"
 
 }
+
+// 自定义任务示例
+task printlnString() {
+    println "aaa"
+
+    doFirst {
+        println "bbb"
+    }
+
+    doLast {
+        println "ccc"
+    }
+
+
+
+    // 执行 ./gradlew 后输出结果为：aaa ddd
+    // 执行 ./gradlew printlnString后输出结果为：aaa ddd bbb ccc
+}
+
+// gradle plugin (gradle插件)
+// 自定义名为 dilkwGradlePlugin 的插件
+//class dilkwGradlePlugin implements Plugin<Project> {
+//    @Override
+//    void apply(Project target) {
+//        def extension = target.extensions.create("dilkwExtension", DilkwExtension)
+//        // 注意这里需要通过afterEvaluate将扩展中执行的代码放到扩展使用后再执行
+//        target.afterEvaluate {
+//            println "hello ${extension.name}"
+//        }
+//    }
+//}
+//
+//// 使用名为 dilkwGradlePlugin 插件
+//apply plugin: dilkwGradlePlugin
+//
+//// 自定义扩展， 其实在 build.gradle文件中编写的 android、dependencies等都可以说是扩展
+//// 自定义名为 dilkwExtension 的扩展
+//class DilkwExtension {
+//    def name = 'dilkw'
+//}

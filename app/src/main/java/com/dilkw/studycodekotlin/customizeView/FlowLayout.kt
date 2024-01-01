@@ -7,6 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.dilkw.studycodekotlin.R
 
+/**
+ * 自定义layout
+ * 模仿flexbox流式布局，实现自定义流式布局
+ */
 class FlowLayout : ViewGroup {
 
     private var mMarginLeftAndRight = 50
